@@ -74,8 +74,8 @@ def load_knowledge_base():
 
 # CONFIGURACIÓN DE PÁGINA
 st.set_page_config(
-    page_title="IA Prometeo",
-    page_icon="🔥",
+    page_title="Yarvis",
+    page_icon="Logo.png",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={'Get Help': None, 'Report a bug': None, 'About': "IA Prometeo - Asistente Inteligente"}
