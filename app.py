@@ -17,12 +17,12 @@ st.error(&quot;Faltan librerías. Instala con: pip install langchain-community l
 faiss-cpu pypdf sentence-transformers&quot;)
 st.stop()
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # CONFIGURACIÓN DE CARPETA (RUTA ABSOLUTA)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOCS_FOLDER = os.path.join(BASE_DIR, &quot;documentos&quot;)
 def load_knowledge_base():
@@ -77,12 +77,12 @@ Inteligente&quot;}
 )
 
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # CSS NEUTRO Y PROFESIONAL (LISTO PARA EDITAR)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 css_neutral = &quot;&quot;&quot;
 &lt;style&gt;
 @import
@@ -252,12 +252,12 @@ color: #1E40AF;
 &quot;&quot;&quot;
 st.markdown(css_neutral, unsafe_allow_html=True)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # HEADER
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 header_html = &quot;&quot;&quot;
 &lt;div class=&quot;main-header&quot;&gt;
 &lt;h1 class=&quot;main-title&quot;&gt;IA PROMETEO ��&lt;/h1&gt;
@@ -266,35 +266,35 @@ header_html = &quot;&quot;&quot;
 &quot;&quot;&quot;
 st.markdown(header_html, unsafe_allow_html=True)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # ZONA DE CONTENIDO (LIMPIA)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # Aquí puedes agregar videos, imágenes o enlaces usando st.video, st.image, st.link_button
 # Ejemplo:
 # st.markdown(&quot;&lt;div class=&#39;content-card&#39;&gt;&quot;, unsafe_allow_html=True)
 # st.video(&quot;URL_DE_TU_VIDEO&quot;)
 # st.markdown(&quot;&lt;/div&gt;&quot;, unsafe_allow_html=True)
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # CONFIGURACIÓN DE API KEY
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 api_key = None
 if &quot;groq&quot; in st.secrets and &quot;api_key&quot; in st.secrets[&quot;groq&quot;]:
 api_key = st.secrets[&quot;groq&quot;][&quot;api_key&quot;]
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # SIDEBAR
 
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 with st.sidebar:
 st.markdown(&quot;&lt;h2&gt;⚙️ Panel de Control&lt;/h2&gt;&quot;, unsafe_allow_html=True)
 st.markdown(&quot;#### �� Configuración&quot;)
@@ -357,12 +357,12 @@ except Exception as e:
 st.error(f&quot;Error al conectar con Groq: {e}&quot;)
 st.stop()
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # PERSONALIDAD Y MODO PLANEACIÓN
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 SYSTEM_PROMPT_BASE = &quot;&quot;&quot;
 Eres **IA Prometeo**, un asistente inteligente, conciso y profesional.
 Tu objetivo es ayudar al usuario a analizar documentos y realizar tareas de planeación o
@@ -407,13 +407,13 @@ Genera ejemplos.
 Genera planeación completa.
 &quot;&quot;&quot;
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # INICIALIZACIÓN DE SESIÓN Y BASE DE DATOS
 
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 if &quot;messages&quot; not in st.session_state:
 st.session_state.messages = []
 if &quot;planning_mode&quot; not in st.session_state:
@@ -423,12 +423,12 @@ vectorstore, loaded_files = load_knowledge_base()
 st.session_state.vectorstore = vectorstore
 st.session_state.loaded_files = loaded_files
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # FUNCIONES AUXILIARES
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 def get_audio_button_html(text, key):
 text_clean = text.replace(&quot;&#39;&quot;, &quot;&quot;).replace(&#39;&quot;&#39;, &#39;&#39;).replace(&quot;\n&quot;, &quot; &quot;)
 # Botón neutro para voz
@@ -504,12 +504,12 @@ return &quot;\n\n---\n\n&quot;.join([f&quot;Fuente: {doc.metadata.get(&#39;sourc
 except Exception as e:
 return &quot;&quot;, None
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 # INTERFAZ DE CHAT
 #
-═══════════════════════════════════════════════════════
-════════
+#═══════════════════════════════════════════════════════
+#════════
 audio_data = None
 st.markdown(&quot;&lt;div class=&#39;mic-container-top&#39;&gt;&quot;, unsafe_allow_html=True)
 try:
