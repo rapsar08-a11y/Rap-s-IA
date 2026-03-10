@@ -279,11 +279,14 @@ st.markdown(css_neutral, unsafe_allow_html=True)
 # ============================================================
 
 header_html = """
-<div class="main-header">
-    <h1 class="main-title">"Yarvis "</h1>
-    <h2 class="image"> logo.png </h2>
-    <p class="subtitle">Tu asistente inteligente para documentos y planeación</p>
-</div>
+# Cargar y mostrar imagen
+image = Image.open("static/img/tu-imagen.png")
+
+st.markdown('<div class="main-header">', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">"Yarvis"</h1>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Tu asistente inteligente para documentos y planeación</p>', unsafe_allow_html=True)
+st.image(image, width=100)
+st.markdown('</div>', unsafe_allow_html=True)
 """
 st.markdown(header_html, unsafe_allow_html=True)
 
