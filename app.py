@@ -281,7 +281,7 @@ st.markdown(css_neutral, unsafe_allow_html=True)
 header_html = """
 <div class="main-header">
     <h1 class="main-title">"Yarvis "</h1>
-    <h2 class="image">"logo.png"</h2>
+    <h2 class="image"> logo.png </h2>
     <p class="subtitle">Tu asistente inteligente para documentos y planeación</p>
 </div>
 """
